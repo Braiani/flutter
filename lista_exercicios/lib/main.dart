@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'exercicios/exercicio_1.dart';
 import 'exercicios/exercicio_2.dart';
+import 'exercicios/exercicio_3.dart';
+import 'exercicios/exercicio_4.dart';
 
 void main() => runApp(const MainApp());
 
@@ -37,6 +39,8 @@ class MainApp extends StatelessWidget {
             children: [
               Exercicio1(),
               Exercicio2(),
+              Exercicio3(),
+              Exercicio4(),
             ],
           ),
         ),

@@ -9,6 +9,24 @@ class Exercicio2 extends StatefulWidget{
 }
 
 class Exercicio2State extends State<Exercicio2>{
+  final TextEditingController _controller = TextEditingController();
+  String _resultado = '';
+
+  void _calcularJuros() {
+    final _deposito = double.tryParse(_controller.text);
+
+    setState(() {
+      if(_deposito == null){
+        _resultado = 'Valor digitado inválido!';
+        return;
+      }
+
+      var calculo = (_deposito * 1.05).toString();
+      
+      _resultado = "O valor total, após 01 mês de rendimento, será de R\$ $calculo";
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,28 +44,28 @@ class Exercicio2State extends State<Exercicio2>{
           
           SizedBox(height: 50),
 
-          /* TextField(
+          TextField(
             controller: _controller,
             decoration: InputDecoration(
-              labelText: 'Digite a medida em metros:',
+              labelText: 'Digite o valor depositado: (R\$)',
             ),
-          ), */
+          ),
 
           SizedBox(height: 50),
 
-          /* FilledButton(
-            onPressed: _converter,
-            child: Text('Converter'),
-          ), */
+          FilledButton(
+            onPressed: _calcularJuros,
+            child: Text('Calcular Rendimento'),
+          ),
 
           SizedBox(height: 50),
 
-          /* Text(
+          Text(
             _resultado,
             style: TextStyle(
               fontSize: 16
             ),
-          ) */
+          )
         ],
       ),
     );
